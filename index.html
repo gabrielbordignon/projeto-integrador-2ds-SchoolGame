@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SchoolGame - plataforma de gamificação de conquistas escolares.">
+  <title>SchoolGame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5Z"/><path d="M4 6.5v13A1.5 1.5 0 0 0 5.5 21H20"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0Z"/><path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="m8.5 12-1 9 4.5-2.5 4.5 2.5-1-9"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5M15 12H3M14 3h6a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-6"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.7 7-6.5 0-3-1.6-5.4-4.6-7.8.2 2.1-.8 3.5-2.1 4.2.2-4-2-6.8-5.3-9.9.2 4.4-2 6.2-2 10.4C5 18 8.1 22 12 22Z"/></symbol>
+  </svg>
+
+  <main id="loginView" class="login-view">
+    <section class="login-intro" aria-labelledby="brandTitle">
+      <a class="brand brand-large" href="#login" aria-label="SchoolGame">
+        <span class="brand-mark"><span>SG</span></span>
+        <span id="brandTitle">School<span>Game</span></span>
+      </a>
+      <div class="intro-copy">
+        <span class="eyebrow"><i></i> Evolução que inspira</span>
+        <h1>Seu progresso também merece reconhecimento.</h1>
+        <p>Acompanhe missões, conquiste insígnias e transforme bons hábitos escolares em uma jornada visível.</p>
+      </div>
+      <div class="intro-stats" aria-label="Destaques da plataforma">
+        <div><strong>XP</strong><span>Cresça a cada conquista</span></div>
+        <div><strong>Missões</strong><span>Organize seus próximos passos</span></div>
+        <div><strong>Insígnias</strong><span>Reconheça sua constância</span></div>
+      </div>
+      <p class="intro-note">Uma iniciativa de gamificação escolar responsável.</p>
+    </section>
+
+    <section class="login-panel" aria-labelledby="loginTitle">
+      <div class="login-card">
+        <div class="mobile-brand brand">
+          <span class="brand-mark"><span>SG</span></span>
+          <span>School<span>Game</span></span>
+        </div>
+        <div class="login-heading">
+          <p class="kicker">Bem-vindo de volta</p>
+          <h2 id="loginTitle">Acesse sua conta</h2>
+          <p>Use seus dados institucionais para continuar.</p>
+        </div>
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">E-mail institucional</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="aluno@escola.pr.gov.br" required>
+            <small class="field-error" id="emailError"></small>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Senha</label>
+              <button class="text-button" type="button" id="forgotButton">Esqueci minha senha</button>
+            </div>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required>
+              <button class="icon-inside" type="button" id="togglePassword" aria-label="Mostrar senha"><svg><use href="#i-eye"/></svg></button>
+            </div>
+            <small class="field-error" id="passwordError"></small>
+          </div>
+          <button class="primary-button" type="submit">Entrar <svg><use href="#i-arrow"/></svg></button>
+          <p class="demo-hint">Protótipo: preencha os dois campos para acessar o painel.</p>
+        </form>
+      </div>
+      <p class="privacy-note">Seus dados escolares são tratados com privacidade e responsabilidade.</p>
+    </section>
+  </main>
+
+  <main id="dashboardView" class="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="#inicio" aria-label="SchoolGame">
+        <span class="brand-mark"><span>SG</span></span>
+        <span>School<span>Game</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-section="Início"><svg><use href="#i-home"/></svg><span>Início</span></button>
+        <button class="nav-item" data-section="Disciplinas"><svg><use href="#i-book"/></svg><span>Disciplinas</span></button>
+        <button class="nav-item" data-section="Missões"><svg><use href="#i-target"/></svg><span>Missões</span><b>3</b></button>
+        <button class="nav-item" data-section="Ranking"><svg><use href="#i-trophy"/></svg><span>Ranking</span></button>
+        <button class="nav-item" data-section="Conquistas"><svg><use href="#i-award"/></svg><span>Conquistas</span></button>
+        <button class="nav-item" data-section="Calendário"><svg><use href="#i-calendar"/></svg><span>Calendário</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-section="Configurações"><svg><use href="#i-settings"/></svg><span>Configurações</span></button>
+        <button class="user-row" id="logoutButton">
+          <span class="avatar">GB</span>
+          <span><strong>Gabriel</strong><small>Aluno · 2º DS</small></span>
+          <svg><use href="#i-logout"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="today">SEXTA-FEIRA, 4 DE SETEMBRO</p>
+          <h1>Olá, Gabriel <span aria-hidden="true">👋</span></h1>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="notificationButton" aria-label="Notificações"><svg><use href="#i-bell"/></svg><span></span></button>
+          <button class="profile-button"><span class="avatar">GB</span><span><strong>Gabriel</strong><small>2º DS</small></span></button>
+        </div>
+      </header>
+
+      <div class="dashboard-grid">
+        <section class="progress-card panel">
+          <div class="level-visual" aria-label="Nível 3, 68 por cento concluído">
+            <svg viewBox="0 0 160 160" role="img">
+              <circle class="ring-track" cx="80" cy="80" r="64"/>
+              <circle class="ring-value" cx="80" cy="80" r="64"/>
+            </svg>
+            <div><span>NÍVEL</span><strong>3</strong></div>
+          </div>
+          <div class="progress-copy">
+            <div class="section-label"><span class="violet-dot"></span> SEU PROGRESSO</div>
+            <h2>Persistente</h2>
+            <p>Você está construindo uma rotina consistente. Continue assim!</p>
+            <div class="xp-row"><strong>680 XP</strong><span>220 XP para o nível 4</span></div>
+            <div class="progress-bar"><i style="width: 68%"></i></div>
+            <small>Próximo nível: <strong>Protagonista</strong> · 900 XP</small>
+          </div>
+        </section>
+
+        <section class="streak-card panel">
+          <div class="streak-icon"><svg><use href="#i-flame"/></svg></div>
+          <div><span>SEQUÊNCIA ATUAL</span><strong>7 dias</strong><p>Seu melhor resultado até agora!</p></div>
+          <div class="week" aria-label="Progresso semanal">
+            <span class="done">S<svg><use href="#i-check"/></svg></span><span class="done">T<svg><use href="#i-check"/></svg></span><span class="done">Q<svg><use href="#i-check"/></svg></span><span class="done">Q<svg><use href="#i-check"/></svg></span><span class="done">S<svg><use href="#i-check"/></svg></span><span class="done">S<svg><use href="#i-check"/></svg></span><span class="current">D<i></i></span>
+          </div>
+        </section>
+
+        <section class="missions-section">
+          <div class="section-heading">
+            <div><h2>Próximas missões</h2><p>Complete suas atividades e acumule XP.</p></div>
+            <button class="secondary-button" data-section="Missões">Ver todas <svg><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="mission-list">
+            <article class="mission-card panel">
+              <div class="subject-icon purple"><svg><use href="#i-book"/></svg></div>
+              <div class="mission-main"><div class="mission-meta"><span class="tag purple-tag">Programação</span><span><svg><use href="#i-clock"/></svg> Hoje, 23:59</span></div><h3>Finalizar interface do projeto</h3><p>Concluir a página inicial e revisar a responsividade.</p><div class="mini-progress"><i style="width: 75%"></i></div><small>3 de 4 etapas concluídas</small></div>
+              <div class="xp-badge">+30 XP</div>
+            </article>
+            <article class="mission-card panel">
+              <div class="subject-icon blue"><svg><use href="#i-target"/></svg></div>
+              <div class="mission-main"><div class="mission-meta"><span class="tag blue-tag">Banco de Dados</span><span><svg><use href="#i-clock"/></svg> 7 set.</span></div><h3>Modelo relacional SchoolGame</h3><p>Entregar o diagrama com tabelas e relacionamentos.</p><div class="mini-progress"><i style="width: 40%"></i></div><small>2 de 5 etapas concluídas</small></div>
+              <div class="xp-badge">+25 XP</div>
+            </article>
+            <article class="mission-card panel">
+              <div class="subject-icon green"><svg><use href="#i-award"/></svg></div>
+              <div class="mission-main"><div class="mission-meta"><span class="tag green-tag">Projeto coletivo</span><span><svg><use href="#i-clock"/></svg> 10 set.</span></div><h3>Apresentação para a turma</h3><p>Preparar a demonstração das primeiras telas do projeto.</p><div class="mini-progress"><i style="width: 20%"></i></div><small>1 de 5 etapas concluídas</small></div>
+              <div class="xp-badge">+40 XP</div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="right-column">
+          <section class="achievement-card panel">
+            <div class="card-top"><span>NOVA CONQUISTA</span><button class="subtle-link" data-section="Conquistas">Ver todas</button></div>
+            <div class="achievement-medal"><svg><use href="#i-award"/></svg><i></i></div>
+            <h3>Pontualidade</h3>
+            <p>5 entregas consecutivas dentro do prazo.</p>
+            <span class="earned"><svg><use href="#i-check"/></svg> Conquistada hoje</span>
+          </section>
+          <section class="ranking-card panel">
+            <div class="card-top"><div><span>RANKING DA TURMA</span><small>2º DS · 3º bimestre</small></div><button class="subtle-link" data-section="Ranking">Ver ranking</button></div>
+            <ol>
+              <li><b class="rank gold">1</b><span class="mini-avatar one">LM</span><span><strong>LunarMind</strong><small>Referência</small></span><em>1.520 XP</em></li>
+              <li><b class="rank silver">2</b><span class="mini-avatar two">CA</span><span><strong>CodeAce</strong><small>Protagonista</small></span><em>1.180 XP</em></li>
+              <li class="you"><b class="rank bronze">3</b><span class="mini-avatar three">GB</span><span><strong>Você</strong><small>Persistente</small></span><em>680 XP</em></li>
+            </ol>
+            <p class="ranking-privacy">O ranking usa apelidos e não exibe notas ou faltas.</p>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <button class="active" data-section="Início"><svg><use href="#i-home"/></svg><span>Início</span></button>
+      <button data-section="Missões"><svg><use href="#i-target"/></svg><span>Missões</span></button>
+      <button data-section="Ranking"><svg><use href="#i-trophy"/></svg><span>Ranking</span></button>
+      <button data-section="Conquistas"><svg><use href="#i-award"/></svg><span>Conquistas</span></button>
+    </nav>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="forgotDialog">
+    <button class="dialog-close" type="button" aria-label="Fechar">×</button>
+    <div class="dialog-icon">@</div>
+    <h2>Recuperar senha</h2>
+    <p>Nesta versão de apresentação, a recuperação será conectada ao sistema institucional em uma próxima etapa.</p>
+    <button class="primary-button dialog-ok" type="button">Entendi</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
